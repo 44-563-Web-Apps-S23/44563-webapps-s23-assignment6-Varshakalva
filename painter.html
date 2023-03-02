@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title> Assignment-6 Javascript</title>
+ <title>Painter page </title>
 <body>
 </head>
 <h2>Painter entry by Varsha Kalvakuntla</h2>
@@ -24,13 +24,15 @@
     guesspainter = document.getElementById("Henry").value;
         if(hiddenpainter==guesspainter)
        {
+        good++;
         //    out.innerHTML = "You got it right"
         document.getElementById("result").innerHTML = good;
         alert("You got it right");
        } 
        else
         {
-         document.getElementById("result").innerHTML = good; 
+         oops++;
+         document.getElementById("result").innerHTML = oops; 
          alert("Sorry")
         }
    }
@@ -58,39 +60,27 @@
            break;
             }
         }
-
-var good=0
-var oops=0
-function checkPainter(){
-    if(oops>=10){
-        giveAlert()
-        document.getElementById("btn").style.visibility="hidden"
-    }else{
-    console.log("Getting form values")
-    password = document.getElementById("password").value
-    check = document.getElementById("check").value
-    confirmed = confirm("Are these the values? "+password+" and "+check)
-    out = document.getElementById("result")
-    if(password==check){
-        alert("You got it right")
-        good=good+1
-    } 
-    else if(oops >= 10){
-        document.getElementById("btn").onclick = giveAlert();
-        oops=oops+1
-
+good=0;
+oops=0;
+count = 0;
+function checkPainter (){
+    hiddenPainter = document.getElementById("password").value
+    guessPainter = document.getElementById("Henry").value
+    if(hiddenPainter == Henry){
+        good += 1;
+        alert("You got it right");
+        document.getElementById("result").innerHTML = good;
+    }else {
+        count++;
+        if(count > 10){
+            alert("Sorry ran out of guesses");
+        }else{
+            oops += 1;
+        alert("Sorry");
+        document.getElementById("result").innerHTML = oops;
+        }
     }
-    else {
-        oops=oops+1
-        alert('Sorry')
     }
-}
-    out.innerHTML ="Right count: " +good+" Wrong count: "+oops
-}
-function giveAlert() 
-{
-            alert("Sorry, ran out of guesses.");
-} 
         </script>
 </body>
 </html> 
